@@ -1,0 +1,30 @@
+public class Randomletterapp {
+
+    private static char randomLetter() {
+        return (char) ('a' + (int)(Math.random() * 26));
+    }
+
+    public static void main(String[] args) {
+
+        char[] word = new char[10];
+        for (int i = 0; i < word.length; i++) {
+            word[i] = randomLetter();
+        }
+
+        System.out.println("Word #1:  " + new String(word));
+
+        for (int count = 2; count <= 20; count++) {
+
+            int indexToChange = (int)(Math.random() * 10);
+
+            char newChar;
+            do {
+                newChar = randomLetter();
+            } while (newChar == word[indexToChange]);
+
+            word[indexToChange] = newChar;
+
+                        System.out.println("Word #" + count + ":  " + new String(word));
+        }
+    }
+}
